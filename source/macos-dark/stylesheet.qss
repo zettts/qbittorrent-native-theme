@@ -1,0 +1,91 @@
+/* qBittorrent Native v9 — macOS Dark */
+QToolBar#toolBar {
+    background: #1C1C1E;
+    color: #F2F2F7;
+    border: none;
+    border-bottom: 1px solid #38383A;
+    spacing: 0px;
+    padding: 0px 5px;
+    margin: 0px;
+    min-height: 40px;
+    max-height: 40px;
+    qproperty-iconSize: 24px 24px;
+}
+/*
+   No QToolButton min-height/max-height (or hover/pressed background) rule
+   here on purpose: on non-integer display scaling, styling QToolButton
+   inside this toolbar was found (on macOS Light, confirmed by direct A/B
+   testing) to misplace the leading search-icon of the neighboring
+   "Filter torrents" QLineEdit, even though the two are different widgets.
+   Applying the same defensive omission here since it's the same platform.
+*/
+QToolBar#toolBar QLabel {
+    color: #F2F2F7;
+    background: transparent;
+}
+QToolBar#toolBar QLineEdit {
+    color: #F2F2F7;
+    background: #2C2C2E;
+    border: 1px solid #48484A;
+    border-radius: 7px;
+    padding: 2px 7px;
+    selection-background-color: #0A84FF;
+}
+QToolBar#toolBar QLineEdit:focus { border-color: #636366; }
+QToolBar#toolBar QComboBox {
+    color: #F2F2F7;
+    background: #2C2C2E;
+    border: 1px solid #48484A;
+    border-radius: 7px;
+    padding: 2px 24px 2px 8px;
+}
+QToolBar#toolBar QComboBox::drop-down { border: none; width: 20px; }
+QToolBar#toolBar QComboBox QAbstractItemView {
+    color: #F2F2F7;
+    background: #2C2C2E;
+    selection-background-color: #0A84FF;
+    selection-color: #FFFFFF;
+}
+QToolBar#toolBar QToolButton::menu-indicator {
+    image: url(:/uitheme/icons/chevron-down.svg);
+    width: 10px;
+    height: 7px;
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    right: 1px;
+}
+QToolBar#toolBar QWidget[minimumWidth="16"],
+QToolBar#toolBar QWidget[minimumWidth="8"] {
+    qproperty-minimumWidth: 0;
+    qproperty-maximumWidth: 0;
+    min-width: 0px;
+    max-width: 0px;
+    width: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: transparent;
+}
+QToolBar#toolBar::separator,
+QToolBar::separator { width: 0px; margin: 0px; padding: 0px; border: none; background: transparent; }
+
+/* Preferences: only sidebar; let macOS/Qt draw the rest natively. */
+QListWidget#categoriesList,
+QListView#categoriesList {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+QListWidget#categoriesList::item,
+QListView#categoriesList::item {
+    color: #F2F2F7;
+    background: transparent;
+    border: none;
+    padding: 4px 6px;
+    margin: 1px 3px;
+    border-radius: 7px;
+}
+QListWidget#categoriesList::item:hover,
+QListView#categoriesList::item:hover { background: #2C2C2E; }
+QListWidget#categoriesList::item:selected,
+QListView#categoriesList::item:selected { background: #0A84FF; color: #FFFFFF; }

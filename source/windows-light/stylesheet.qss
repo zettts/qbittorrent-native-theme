@@ -1,0 +1,71 @@
+/* qBittorrent Native v8 — windows-light */
+QToolBar#toolBar {
+    background: #F7F7F7;
+    color: #202020;
+    border: none;
+    border-bottom: 1px solid #D9D9D9;
+    spacing: 0px;
+    padding: 0px 5px;
+    margin: 0px;
+    min-height: 40px;
+    max-height: 40px;
+    qproperty-iconSize: 24px 24px;
+}
+
+QToolBar#toolBar QToolButton {
+    color: #202020;
+    background: transparent;
+    border: none;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 32px;
+    max-height: 32px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 4px;
+}
+QToolBar#toolBar QToolButton:hover { background: #EAEAEA; }
+QToolBar#toolBar QToolButton:pressed,
+QToolBar#toolBar QToolButton:checked { background: #DDDDDD; }
+QToolBar#toolBar QToolButton::menu-indicator {
+    image: url(:/uitheme/icons/chevron-down.svg);
+    width: 10px;
+    height: 7px;
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    right: 1px;
+}
+
+QToolBar#toolBar::separator,
+QToolBar::separator {
+    background: transparent;
+    border: none;
+    width: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Preferences sidebar: keep platform geometry, normalize icon/text palette. */
+QListWidget#categoriesList,
+QListView#categoriesList {
+    background: #F7F7F7;
+    color: #202020;
+    border: none;
+    outline: none;
+}
+QListWidget#categoriesList::item,
+QListView#categoriesList::item {
+    color: #202020;
+    background: transparent;
+    border: none;
+    padding: 4px 6px;
+    margin: 1px 3px;
+    border-radius: 4px;
+}
+QListWidget#categoriesList::item:hover,
+QListView#categoriesList::item:hover { background: #EAEAEA; }
+QListWidget#categoriesList::item:selected,
+QListView#categoriesList::item:selected {
+    background: #0067C0;
+    color: #FFFFFF;
+}

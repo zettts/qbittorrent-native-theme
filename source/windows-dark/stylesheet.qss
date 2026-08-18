@@ -1,0 +1,72 @@
+/* qBittorrent Native v9 — Windows Dark */
+QToolBar#toolBar {
+    background: #202020;
+    color: #F5F5F5;
+    border: none;
+    border-bottom: 1px solid #323232;
+    spacing: 0px;
+    padding: 0px 6px;
+    margin: 0px;
+    min-height: 42px;
+    max-height: 42px;
+    qproperty-iconSize: 22px 22px;
+}
+QToolBar#toolBar QToolButton {
+    color: #F5F5F5;
+    background: transparent;
+    border: none;
+    min-width: 32px;
+    max-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 4px;
+}
+QToolBar#toolBar QToolButton:hover { background: #2D2D2D; }
+QToolBar#toolBar QToolButton:pressed,
+QToolBar#toolBar QToolButton:checked { background: #3A3A3A; }
+QToolBar#toolBar QLabel { color: #F5F5F5; background: transparent; }
+QToolBar#toolBar QLineEdit,
+QToolBar#toolBar QComboBox {
+    color: #F5F5F5;
+    background: #2B2B2B;
+    border: 1px solid #454545;
+    border-radius: 4px;
+    padding: 3px 7px;
+    selection-background-color: #005FB8;
+}
+QToolBar#toolBar QComboBox { padding-right: 22px; }
+QToolBar#toolBar QComboBox::drop-down { border: none; width: 20px; }
+QToolBar#toolBar QComboBox QAbstractItemView {
+    color: #F5F5F5;
+    background: #2B2B2B;
+    selection-background-color: #005FB8;
+    selection-color: #FFFFFF;
+}
+QToolBar#toolBar QToolButton::menu-indicator {
+    image: url(:/uitheme/icons/chevron-down.svg);
+    width: 10px;
+    height: 7px;
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    right: 1px;
+}
+QToolBar#toolBar::separator,
+QToolBar::separator { width: 0px; margin: 0px; padding: 0px; border: none; background: transparent; }
+
+QListWidget#categoriesList,
+QListView#categoriesList { background: transparent; border: none; outline: none; }
+QListWidget#categoriesList::item,
+QListView#categoriesList::item {
+    color: #F5F5F5;
+    background: transparent;
+    border: none;
+    padding: 4px 6px;
+    margin: 1px 2px;
+    border-radius: 4px;
+}
+QListWidget#categoriesList::item:hover,
+QListView#categoriesList::item:hover { background: #2D2D2D; }
+QListWidget#categoriesList::item:selected,
+QListView#categoriesList::item:selected { background: #005FB8; color: #FFFFFF; }

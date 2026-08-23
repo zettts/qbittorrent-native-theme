@@ -1,4 +1,4 @@
-/* qBittorrent Native v8 — linux-dark */
+/* qBittorrent Native — Linux Dark */
 QToolBar#toolBar {
     background: #242424;
     color: #F6F5F4;
@@ -12,21 +12,17 @@ QToolBar#toolBar {
     qproperty-iconSize: 24px 24px;
 }
 
-QToolBar#toolBar QToolButton {
-    color: #F6F5F4;
-    background: transparent;
-    border: none;
-    min-width: 30px;
-    max-width: 30px;
-    min-height: 32px;
-    max-height: 32px;
-    padding: 0px;
-    margin: 0px;
-    border-radius: 6px;
-}
-QToolBar#toolBar QToolButton:hover { background: #343434; }
-QToolBar#toolBar QToolButton:pressed,
-QToolBar#toolBar QToolButton:checked { background: #414141; }
+/*
+   No QToolButton min-height/max-height (or hover/pressed background) rule
+   here on purpose: on non-integer display scaling, styling QToolButton
+   inside this toolbar was found (on macOS, confirmed by direct A/B testing)
+   to misplace the leading search-icon of the neighboring "Filter torrents"
+   QLineEdit, even though the two are different widgets. Applying the same
+   defensive omission here since the same toolbar layout is shared across
+   all variants. Buttons render with default/native look until a
+   narrower-scoped fix is found.
+*/
+
 QToolBar#toolBar QToolButton::menu-indicator {
     image: url(:/uitheme/icons/chevron-down.svg);
     width: 10px;
@@ -34,6 +30,32 @@ QToolBar#toolBar QToolButton::menu-indicator {
     subcontrol-origin: padding;
     subcontrol-position: center right;
     right: 1px;
+}
+
+/*
+   qBittorrent 5.2.3 on macOS converts toolbar separators into ordinary
+   QWidget spacers with minimumWidth=16. It also adds two 8px QWidget
+   spacers. Because they are no longer QToolBar::separator objects, styling
+   QToolBar::separator alone cannot remove them on macOS. Included here too
+   (not just in the macOS variants) since this platform-branded theme file
+   can still end up loaded by a macOS build of qBittorrent.
+
+   Match those exact spacer widgets by their minimumWidth Qt property and
+   reset the QWidget geometry properties themselves. The expanding spacer
+   that pushes Search/Filter to the right has no 8/16px minimumWidth and is
+   intentionally left untouched.
+*/
+QToolBar#toolBar QWidget[minimumWidth="16"],
+QToolBar#toolBar QWidget[minimumWidth="8"] {
+    qproperty-minimumWidth: 0;
+    qproperty-maximumWidth: 0;
+    min-width: 0px;
+    max-width: 0px;
+    width: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: transparent;
 }
 
 QToolBar#toolBar::separator,

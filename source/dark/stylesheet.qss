@@ -1,4 +1,15 @@
-/* qBittorrent Native — Linux Dark */
+/* qBittorrent Native — Dark (universal, no OS binding) */
+
+/*
+   Unlike the Light theme, Dark cannot assume the OS itself is already
+   dark: without forcing the base palette here, generic Qt widgets
+   (lists, menus, inputs, tabs, scrollbars) would fall back to whatever
+   palette Qt picked at startup and could render light-on-dark or
+   otherwise mismatched. So this theme sets the app-wide palette itself
+   instead of relying on "switch your OS to dark mode first".
+*/
+QMainWindow, QDialog, QWidget { background-color: #242424; color: #F6F5F4; }
+
 QToolBar#toolBar {
     background: #242424;
     color: #F6F5F4;
@@ -14,14 +25,27 @@ QToolBar#toolBar {
 
 /*
    No QToolButton min-height/max-height (or hover/pressed background) rule
-   here on purpose: on non-integer display scaling, styling QToolButton
-   inside this toolbar was found (on macOS, confirmed by direct A/B testing)
-   to misplace the leading search-icon of the neighboring "Filter torrents"
-   QLineEdit, even though the two are different widgets. Applying the same
-   defensive omission here since the same toolbar layout is shared across
-   all variants. Buttons render with default/native look until a
-   narrower-scoped fix is found.
+   here on purpose: same reasoning as the Light theme — this is the same
+   qBittorrent toolbar layout/bug, independent of color scheme.
 */
+
+QToolBar#toolBar QLineEdit,
+QToolBar#toolBar QComboBox {
+    color: #F6F5F4;
+    background: #303030;
+    border: 1px solid #4B4B4B;
+    border-radius: 6px;
+    padding: 3px 7px;
+    selection-background-color: #3584E4;
+}
+QToolBar#toolBar QComboBox { padding-right: 22px; }
+QToolBar#toolBar QComboBox::drop-down { border: none; width: 20px; }
+QToolBar#toolBar QComboBox QAbstractItemView {
+    color: #F6F5F4;
+    background: #303030;
+    selection-background-color: #3584E4;
+    selection-color: #FFFFFF;
+}
 
 QToolBar#toolBar QToolButton::menu-indicator {
     image: url(:/uitheme/icons/chevron-down.svg);
@@ -33,17 +57,12 @@ QToolBar#toolBar QToolButton::menu-indicator {
 }
 
 /*
-   qBittorrent 5.2.3 on macOS converts toolbar separators into ordinary
-   QWidget spacers with minimumWidth=16. It also adds two 8px QWidget
-   spacers. Because they are no longer QToolBar::separator objects, styling
-   QToolBar::separator alone cannot remove them on macOS. Included here too
-   (not just in the macOS variants) since this platform-branded theme file
-   can still end up loaded by a macOS build of qBittorrent.
-
-   Match those exact spacer widgets by their minimumWidth Qt property and
-   reset the QWidget geometry properties themselves. The expanding spacer
-   that pushes Search/Filter to the right has no 8/16px minimumWidth and is
-   intentionally left untouched.
+   qBittorrent (as of 5.2.3) turns toolbar separators into plain QWidget
+   spacers with minimumWidth=16, plus two 8px QWidget spacers, so styling
+   QToolBar::separator alone cannot remove them. Match the spacer widgets
+   by their minimumWidth Qt property and zero them out. The expanding
+   spacer that pushes Search/Filter to the right has no 8/16px
+   minimumWidth and is intentionally left untouched.
 */
 QToolBar#toolBar QWidget[minimumWidth="16"],
 QToolBar#toolBar QWidget[minimumWidth="8"] {
@@ -59,22 +78,11 @@ QToolBar#toolBar QWidget[minimumWidth="8"] {
 }
 
 QToolBar#toolBar::separator,
-QToolBar::separator {
-    background: transparent;
-    border: none;
-    width: 0px;
-    margin: 0px;
-    padding: 0px;
-}
+QToolBar::separator { width: 0px; margin: 0px; padding: 0px; border: none; background: transparent; }
 
-/* Preferences sidebar: keep platform geometry, normalize icon/text palette. */
+/* Preferences sidebar */
 QListWidget#categoriesList,
-QListView#categoriesList {
-    background: #242424;
-    color: #F6F5F4;
-    border: none;
-    outline: none;
-}
+QListView#categoriesList { background: transparent; border: none; outline: none; }
 QListWidget#categoriesList::item,
 QListView#categoriesList::item {
     color: #F6F5F4;
@@ -87,12 +95,9 @@ QListView#categoriesList::item {
 QListWidget#categoriesList::item:hover,
 QListView#categoriesList::item:hover { background: #343434; }
 QListWidget#categoriesList::item:selected,
-QListView#categoriesList::item:selected {
-    background: #3584E4;
-    color: #FFFFFF;
-}
+QListView#categoriesList::item:selected { background: #3584E4; color: #FFFFFF; }
 
-QMainWindow, QDialog, QWidget { background-color: #242424; color: #F6F5F4; }
+/* App-wide dark palette */
 QTreeView, QTableView, QListView, QListWidget, QAbstractItemView {
     background-color: #242424; color: #F6F5F4;
     alternate-background-color: #343434;

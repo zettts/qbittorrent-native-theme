@@ -60,7 +60,7 @@ The six previous per-platform builds are still available in this repository's gi
 
 ## Support
 
-If you enjoy this theme, you can [support me on Ko-fi](https://ko-fi.com/zettts) to support its development. Thank you for your support!
+Enjoying the theme? [Support its development on Ko-fi](https://ko-fi.com/zettts). Every coffee helps fund maintenance and future improvements. Thank you!
 
 ## License
 

@@ -58,6 +58,10 @@ qBittorrent (as of 5.2.3) turns toolbar separators into plain `QWidget` spacers 
 
 The six previous per-platform builds are still available in this repository's git history if you need one for reference.
 
+## Support
+
+If you enjoy this theme, you can [support me on Ko-fi](https://ko-fi.com/zettts) to support its development. Thank you for your support!
+
 ## License
 
 Theme code and custom SVG icons in this repository are released under the MIT License. qBittorrent is a separate project and is not affiliated with this theme.

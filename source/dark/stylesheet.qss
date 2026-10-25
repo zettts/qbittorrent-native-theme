@@ -121,3 +121,30 @@ QTabBar::tab { background: #242424; color: #F6F5F4; padding: 5px 10px; }
 QTabBar::tab:selected { background: #343434; }
 QScrollBar:vertical, QScrollBar:horizontal { background: transparent; border: none; }
 QScrollBar::handle:vertical, QScrollBar::handle:horizontal { background: #666666; border-radius: 5px; min-height: 24px; min-width: 24px; }
+
+/*
+   Draw item checkboxes from theme resources instead of the native macOS
+   control. macOS 27 can make Qt's native indicators invisible in the
+   Add Torrent file tree and torrent Content view.
+*/
+QCheckBox::indicator,
+QGroupBox::indicator,
+QTreeView::indicator {
+    width: 16px;
+    height: 16px;
+}
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked,
+QTreeView::indicator:checked {
+    image: url(:/uitheme/icons/checkbox-checked.svg);
+}
+QCheckBox::indicator:unchecked,
+QGroupBox::indicator:unchecked,
+QTreeView::indicator:unchecked {
+    image: url(:/uitheme/icons/checkbox-unchecked.svg);
+}
+QCheckBox::indicator:indeterminate,
+QGroupBox::indicator:indeterminate,
+QTreeView::indicator:indeterminate {
+    image: url(:/uitheme/icons/checkbox-indeterminate.svg);
+}

@@ -18,6 +18,7 @@ A clean, compact qBittorrent theme pack with monochrome icons and a light/dark v
 
 - Compact 24 px monochrome toolbar icons
 - Matching Preferences/sidebar icon set
+- Works on macOS 27 (Golden Gate), including visible file-selection checkboxes
 - Light and dark variants
 - One shared stylesheet per mode, verified against the same qBittorrent toolbar layout on every OS instead of maintaining six near-duplicate builds
 - Dark mode forces its own palette instead of depending on OS dark mode, so it looks correct even if your system is set to light

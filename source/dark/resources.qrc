@@ -2,6 +2,9 @@
   <qresource>
     <file alias="stylesheet.qss">stylesheet.qss</file>
     <file alias="config.json">config.json</file>
+    <file alias="icons/checkbox-checked.svg">icons/checkbox-checked.svg</file>
+    <file alias="icons/checkbox-unchecked.svg">icons/checkbox-unchecked.svg</file>
+    <file alias="icons/checkbox-indeterminate.svg">icons/checkbox-indeterminate.svg</file>
     <file alias="icons/application-rss+xml.svg">icons/application-rss+xml.svg</file>
     <file alias="icons/application-rss.svg">icons/application-rss.svg</file>
     <file alias="icons/chevron-down.svg">icons/chevron-down.svg</file>

@@ -84,3 +84,30 @@ QListView#categoriesList::item:selected {
     background: #3584E4;
     color: #FFFFFF;
 }
+
+/*
+   Draw item checkboxes from theme resources instead of the native macOS
+   control. macOS 27 can make Qt's native indicators invisible in the
+   Add Torrent file tree and torrent Content view.
+*/
+QCheckBox::indicator,
+QGroupBox::indicator,
+QTreeView::indicator {
+    width: 16px;
+    height: 16px;
+}
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked,
+QTreeView::indicator:checked {
+    image: url(:/uitheme/icons/checkbox-checked.svg);
+}
+QCheckBox::indicator:unchecked,
+QGroupBox::indicator:unchecked,
+QTreeView::indicator:unchecked {
+    image: url(:/uitheme/icons/checkbox-unchecked.svg);
+}
+QCheckBox::indicator:indeterminate,
+QGroupBox::indicator:indeterminate,
+QTreeView::indicator:indeterminate {
+    image: url(:/uitheme/icons/checkbox-indeterminate.svg);
+}

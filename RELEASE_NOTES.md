@@ -2,6 +2,8 @@
 
 Consolidated release: two OS-agnostic builds instead of six per-platform ones.
 
+The theme now works on macOS 27 (Golden Gate), with visible checkboxes in torrent file selection.
+
 Included builds:
 
 - Light (`themes/light.qbtheme`)

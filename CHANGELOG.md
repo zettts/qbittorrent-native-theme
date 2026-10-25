@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1 - 2026-10-25
+
+- Fixed invisible file-selection checkboxes on macOS 27 (Golden Gate). Verified with qBittorrent 5.2.3.
+
 ## 2.0 - 2026-09-07
 
 - Replaced the six per-platform builds (macOS/Windows/Linux × Light/Dark) with two OS-agnostic builds: `light.qbtheme` and `dark.qbtheme`.

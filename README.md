@@ -2,7 +2,7 @@
 
 A clean, compact qBittorrent theme pack with monochrome icons and a light/dark variant. One `.qbtheme` per color mode — no per-OS builds to pick between.
 
-> Current release: **v2.0**
+> Current release: **v2.1**
 > Built around qBittorrent 5.x.
 
 ![qBittorrent Native preview](assets/preview.png)
@@ -55,7 +55,7 @@ qBittorrent (as of 5.2.3) turns toolbar separators into plain `QWidget` spacers 
 - Light/Dark switching is not automatic; select the corresponding `.qbtheme` manually — this is a qBittorrent limitation (one theme resource loaded at a time), not something a theme file can work around.
 - Linux appearance can vary between desktop environments and Qt styles.
 - Some qBittorrent versions may use slightly different resource names or widget metrics.
-- Only the previous macOS Light build had been verified on real qBittorrent; the merged Light/Dark themes carry that verification forward for the toolbar fix, but haven't yet been screenshot-tested across every OS. Feedback/issues welcome.
+- The Light theme's file-selection checkboxes have been verified in qBittorrent 5.2.3 on macOS 27 (Golden Gate). Broader testing across operating systems and Qt styles is welcome.
 
 The six previous per-platform builds are still available in this repository's git history if you need one for reference.
 
